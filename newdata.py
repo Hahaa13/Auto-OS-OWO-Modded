@@ -13,6 +13,7 @@ def menu():
  print(f'| [2] Change Token            |')
  print(f'| [3] Change Channel          |')
  print(f'| [4] Change Bet Amount       |')
+ print(f'| [5] Change Rate Multiple    |')
  print(f'| [6] Solve Capcha            |')
  print(f'| [7] Change Webhook Settings |')
  print('================================')
