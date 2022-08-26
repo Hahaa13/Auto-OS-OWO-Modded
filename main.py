@@ -232,10 +232,11 @@ def check(resp):
                     print("{}[INFO LOSE] Lost: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy / {}Last Benefit: {} Cowoncy. {}  ".format(client.color.fail,client.current_bet,client.color.okcyan,client.totalwon,client.color.pink,client.totallost+client.current_bet,client.color.purple,client.totalwon-client.current_bet-client.totallost,client.color.reset))
                     client.totallost += client.current_bet                    
                     client.current_bet *= client.rate
-                    if client.maxbet.lower()=="allin" and client.current_bet>150000:
-                      client.current_bet = 150000
-                    else:
-                      client.current_bet=client.bet
+                    if client.current_bet>150000:
+                      if client.maxbet.lower()=="allin":
+                        client.current_bet = 150000
+                      if client.maxbet.lower()=="reset":
+                        client.current_bet=client.bet
  
 def cf():
 
