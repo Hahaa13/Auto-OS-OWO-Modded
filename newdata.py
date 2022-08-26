@@ -22,7 +22,7 @@ def menu():
  if choice == "1":
   t(data,"True")
   c(data,"True")
-  be(data,"True")
+  bet(data,"True")
   solve(data,"True")
   webhook(data,"True")
  if choice == "2":
@@ -32,9 +32,9 @@ def menu():
  if choice == "4":
   bet(data,"False")
  if choice == "5":
-  bet(data,"False")
+  solve(data,"False")
  if choice == "6":
-  bet(data,"False")
+  webhook(data,"False")
 def t(data,all):
  data['token'] = input("Please Enter Your Account Token: ")
  file = open("settings.json", "w")
