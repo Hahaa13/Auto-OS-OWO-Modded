@@ -74,6 +74,7 @@ class client:
         channel = data["channel"]
         bet = int(data["bet"])
         rate = int(data["rate"])
+        maxbet = int(data["maxbet"])
         webhook = data["webhook"]
         webhookping = data["webhookping"]
         solve = data['solve']
@@ -121,6 +122,7 @@ def on_ready(resp):
         print(f'| * {client.color.magenta}Channel:{client.color.green} Id {client.channel}   {client.color.reset}')
         print(f'| * {client.color.magenta}First Bet: {client.color.green}{client.bet}  {client.color.reset}')
         print(f'| * {client.color.magenta}Rate Multiple: {client.color.green}{client.rate}  {client.color.reset}')
+        print(f'| * {client.color.magenta}Max Bet Method: {client.color.green}{client.maxbet}  {client.color.reset}')
         print(f'| * {client.color.magenta}Webhook: {client.color.green}{client.webhook}  {client.color.reset}')
         print(f'| * {client.color.magenta}Webhookping: {client.color.green}{client.webhookping}  {client.color.reset}')
         print(f'| * {client.color.magenta}Solve: {client.color.green}{client.solve}  {client.color.reset}')
@@ -227,8 +229,12 @@ def check(resp):
                       
                 if   'and you lost it all... :c' in m['content']:
                     print("{}[INFO LOSE] Lost: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy / {}Last Benefit: {} Cowoncy. {}  ".format(client.color.fail,client.current_bet,client.color.okcyan,client.totalwon,client.color.pink,client.totallost+client.current_bet,client.color.purple,client.totalwon-client.current_bet-client.totallost,client.color.reset))
-                    client.totallost += client.current_bet
+                    client.totallost += client.current_bet                    
                     client.current_bet *= client.rate
+                    if client.maxbet.lower()=="allin" and client.current_bet>150000:
+                      client.current_bet = 150000
+                    else:
+                      client.current_bet=client.bet
  
 def cf():
 

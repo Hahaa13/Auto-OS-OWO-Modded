@@ -13,8 +13,8 @@ def menu():
  print(f'| [2] Change Token            |')
  print(f'| [3] Change Channel          |')
  print(f'| [4] Change Bet Amount       |')
- print(f'| [5] Solve Capcha            |')
- print(f'| [6] Change Webhook Settings |')
+ print(f'| [6] Solve Capcha            |')
+ print(f'| [7] Change Webhook Settings |')
  print('================================')
  choice = input("Enter Your Choice: ")
  if choice == "0":
@@ -23,6 +23,7 @@ def menu():
   t(data,"True")
   c(data,"True")
   bet(data,"True")
+  rate(data,"True")
   solve(data,"True")
   webhook(data,"True")
  if choice == "2":
@@ -32,8 +33,12 @@ def menu():
  if choice == "4":
   bet(data,"False")
  if choice == "5":
-  solve(data,"False")
+  rate(data,"False")
  if choice == "6":
+  maxbet(data,"False")
+ if choice == "7":
+  solve(data,"False")
+ if choice == "8":
   webhook(data,"False")
 def t(data,all):
  data['token'] = input("Please Enter Your Account Token: ")
@@ -53,6 +58,22 @@ def c(data,all):
   menu()
 def bet(data,all):
  data['bet'] = input("Enter Your Bet Amount (Must Be Integer): ")
+ file = open("settings.json", "w")
+ json.dump(data, file)
+ file.close()
+ print('Successfully saved!')
+ if not all == "True":
+  menu()
+def rate(data,all):
+ data['rate'] = input("Enter Your Bet Rate Multiple (Ngã ở đâu x? ở đó) (Best is x4) (x2 is not good) (Must Be Integer): ")
+ file = open("settings.json", "w")
+ json.dump(data, file)
+ file.close()
+ print('Successfully saved!')
+ if not all == "True":
+  menu()
+def maxbet(data,all):
+ data['maxbet'] = input("Are you prefer all in to die or reset bet when the bet > 150k ? (AllIn/Reset): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
