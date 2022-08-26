@@ -247,9 +247,8 @@ def cf():
   client.totalcmd += 1
   time.sleep(random.randint(wbm[0], wbm[1]))
 
-  time.sleep(5)
-  if client.current_bet  > 150000:
-    client.current_bet = 150000
+  time.sleep(15)
+
 
 @bot.gateway.command  
 def security(resp):
