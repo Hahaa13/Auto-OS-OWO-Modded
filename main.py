@@ -74,9 +74,10 @@ class client:
         channel = data["channel"]
         bet = int(data["bet"])
         rate = int(data["rate"])
-        maxbet = int(data["maxbet"])
+       
         webhook = data["webhook"]
         webhookping = data["webhookping"]
+        maxbet = data["maxbet"]
         solve = data['solve']
   current_bet = bet
   if data["token"] and data["channel"] == 'nothing':
