@@ -50,6 +50,7 @@ class client:
   totallost = 0
   totalwon = 0
   username=""
+  stopped=False
   class color:
     black  = "\033[30m"
     red    = "\033[31m"
@@ -224,6 +225,8 @@ def check(resp):
                 if    'and you won' in m['content']:
                     print("{}[INFO WIN] Won: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy  / {}Last Benefit: {} Cowoncy. {} ".format(client.color.okgreen,client.current_bet,client.color.okcyan,client.totalwon+client.current_bet,client.color.pink,client.totallost,client.color.purple,client.totalwon+client.current_bet-client.totallost,client.color.reset))
                     client.totalwon += client.current_bet
+                    if client.current_bet==150000:
+                        bot.sendMessage(str(client.channel), "owo cash")
                     client.current_bet = client.bet
                     
                     
@@ -237,17 +240,20 @@ def check(resp):
                         client.current_bet = 150000
                       if client.maxbet.lower()=="reset":
                         client.current_bet=client.bet
+                    time.sleep(2)
  
 def cf():
+  
+    if client.current_bet==150000:
+        bot.sendMessage(str(client.channel), "owo pray")
 
- 
-  bot.sendMessage(str(client.channel), "ocf {}  ".format(client.current_bet))
-  print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
+    bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
+    print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
+    time.sleep(random.randint(16,20))
+    client.totalcmd += 1
+    time.sleep(random.randint(wbm[0], wbm[1]))
 
-  client.totalcmd += 1
-  time.sleep(random.randint(wbm[0], wbm[1]))
-
-  time.sleep(15)
+  
 
 
 @bot.gateway.command  
@@ -257,7 +263,7 @@ def security(resp):
     client.stopped = True
     user = bot.gateway.session.user
     if client.webhookping != 'None':
-     sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> I Found A Captcha In Channel: <#{}. User: {}>'.format(client.webhookping,client.channel,client.username))
+     sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> I Found A Captcha In Channel: <#{}>. User: {}>'.format(client.webhookping,client.channel,client.username))
      response = sentwebhook.execute()
      bot.switchAccount('NzI1MzEyMTM5MTkwODYxODc1.YcmgMQ.utL5QNIm9XSdRUDOuhkrY39IGcD')
     else:
@@ -273,13 +279,20 @@ def security(resp):
 def loopie(resp):
  if resp.event.ready:
   x=True
+  pray=0
+  cfwait=pray
   main=time.time()
+  
   while x:
 
-      cf()
-      if time.time() - main > random.randint(1000, 2000):
-        time.sleep(random.randint(20,30))
-        main=time.time()
+      if client.stopped != True:
+        cf()
+		
+
+        if time.time() - main > random.randint(1000, 2000):
+            time.sleep(random.randint(20,30))
+            main=time.time()
+
 def defination1():
   global once
   if not once:
