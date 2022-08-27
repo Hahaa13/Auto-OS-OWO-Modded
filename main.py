@@ -226,6 +226,7 @@ def check(resp):
                     print("{}[INFO WIN] Won: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy  / {}Last Benefit: {} Cowoncy. {} ".format(client.color.okgreen,client.current_bet,client.color.okcyan,client.totalwon+client.current_bet,client.color.pink,client.totallost,client.color.purple,client.totalwon+client.current_bet-client.totallost,client.color.reset))
                     client.totalwon += client.current_bet
                     if client.current_bet==150000:
+                        bot.typingAction(str(client.channel))
                         bot.sendMessage(str(client.channel), "owo cash")
                     client.current_bet = client.bet
                     
@@ -245,8 +246,9 @@ def check(resp):
 def cf():
   
     if client.current_bet==150000:
+        bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), "owo pray")
-
+    bot.typingAction(str(client.channel))
     bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
     print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
     time.sleep(random.randint(16,20))
