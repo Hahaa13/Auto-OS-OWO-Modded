@@ -15,8 +15,8 @@ def menu():
  print(f'| [4] Change Bet Amount       |')
  print(f'| [5] Change Rate Multiple    |')
  print(f'| [6] Change Max Bet Method   |')
- print(f'| [7] Solve Capcha            |')
- print(f'| [8] Change Webhook Settings |')
+ #print(f'| [7] Solve Capcha            |')
+ #print(f'| [8] Change Webhook Settings |')
  print('================================')
  choice = input("Enter Your Choice: ")
  if choice == "0":
@@ -27,8 +27,8 @@ def menu():
   bet(data,"True")
   rate(data,"True")
   maxbet(data,"True")
-  solve(data,"True")
-  webhook(data,"True")
+  #solve(data,"True")
+  #webhook(data,"True")
  if choice == "2":
   t(data,"False")
  if choice == "3":
@@ -39,10 +39,10 @@ def menu():
   rate(data,"False")
  if choice == "6":
   maxbet(data,"False")
- if choice == "7":
-  solve(data,"False")
- if choice == "8":
-  webhook(data,"False")
+ #if choice == "7":
+  #solve(data,"False")
+ #if choice == "8":
+  #webhook(data,"False")
 def t(data,all):
  data['token'] = input("Please Enter Your Account Token: ")
  file = open("settings.json", "w")
