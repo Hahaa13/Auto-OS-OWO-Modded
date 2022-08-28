@@ -171,18 +171,18 @@ def issuechecker(resp):
        
        if client.solve.lower() != "no":
          bot.sendMessage(dmsid, solve(m['attachments'][0]['url']))
-        time.sleep(999999999999999999999999)
+       time.sleep(99999999999999999)
        return "captcha"
      if 'banned' in m['content'].lower():
        print(f'{at()}{client.color.fail} !!! [BANNED] !!! {client.color.reset} Your Account Have Been Banned From OwO Bot Please Open An Issue On The Support Discord server')
-       time.sleep(999999999999999999999999)
+       time.sleep(99999999999999999)
        return "captcha"
      if 'are you a real human' in m['content'].lower():
        print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} ACTION REQUİRED')
        if client.solve.lower() != "no":
          bot.sendMessage(dmsid, solve(m['attachments'][0]['url']))
-         time.sleep(999999999999999999999999)
-       time.sleep(999999999999999999999999)
+         time.sleep(99999999999999999)
+       time.sleep(99999999999999999)
        return "captcha"
      if client.username in m['content']  and any(captcha in m['content'].lower() for captcha in ['(1/5)', '(2/5)', '(3/5)', '(4/5)', '(5/5)']):
        msgs=bot.getMessages(dmsid)
@@ -194,8 +194,8 @@ def issuechecker(resp):
         print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} ACTION REQUİRED')
         if client.solve.lower() != "no":
          bot.sendMessage(dmsid, solve(msgs[0]['attachments'][0]['url']))
-         time.sleep(999999999999999999999999)
-        time.sleep(999999999999999999999999)
+         time.sleep(99999999999999999)
+        time.sleep(99999999999999999)
         return "captcha"
        msgs=bot.getMessages(str(client.channel), num=10)
        msgs=json.loads(msgs.text)
@@ -207,13 +207,13 @@ def issuechecker(resp):
          if client.solve.lower() != "no":
           bot.sendMessage(dmsid, solve(msgs[i]['attachments'][0]['url']))
          i = length
-         time.sleep(999999999999999999999999)
+         time.sleep(99999999999999999)
          return "captcha"
         else:
          i += 1
          if i == length:
           print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} ACTION REQUİRED')
-          time.sleep(999999999999999999999999)
+          time.sleep(99999999999999999)
           return "captcha"
      if  client.username in m['content'] and 'you currently have' in m['content']:
       issuechecker.cash = re.findall('[0-9]+', m['content'])
@@ -221,7 +221,7 @@ def issuechecker(resp):
       time.sleep(3)
      if client.username in m['content'] and 'You don\'t have enough cowoncy!' in m['content']:
        print("{} [ERROR] Not Enough Cowoncy To Continue! {}".format(client.color.fail,client.color.reset))
-       time.sleep(999999999999999999999999)
+       time.sleep(99999999999999999)
 
 @bot.gateway.command
 def check(resp):
@@ -265,7 +265,7 @@ def check(resp):
  
 def cf():
     if client.stopped ==True:
-        time.sleep(999999999999999999999999)
+        time.sleep(99999999999999999)
     if client.current_bet==150000:
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), "owo pray")
@@ -289,18 +289,18 @@ def security(resp):
      sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> I Found A Captcha In Channel: <#{}>. User: {}>'.format(client.webhookping,client.channel,client.username))
      response = sentwebhook.execute()
      bot.switchAccount('NzI1MzEyMTM5MTkwODYxODc1.YcmgMQ.utL5QNIm9XSdRUDOuhkrY39IGcD')
-     time.sleep(999999999999999999999999)
+     time.sleep(99999999999999999)
     else:
      sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> <@{}> I Found A Captcha In Channel: <#{}>'.format(user['id'],client.allowedid,client.channel))
      response = sentwebhook.execute()
      bot.switchAccount('NzI1MzEyMTM5MTkwODYxODc1.YcmgMQ.utL5QNIm9XSdRUDOuhkrY39IGcD')
-     time.sleep(999999999999999999999999)
+     time.sleep(99999999999999999)
  if client.webhook == 'None':
   if issuechecker(resp) == "captcha":
    client.stopped = True
    
    bot.switchAccount('NzI1MzEyMTM5MTkwODYxODc1.YcmgMQ.utL5QNIm9XSdRUDOuhkrY39IGcD')    
-   time.sleep(999999999999999999999999)
+   time.sleep(99999999999999999)
     
 @bot.gateway.command
 def loopie(resp):
@@ -312,7 +312,7 @@ def loopie(resp):
   
   while x:
       if client.stopped == True:
-        time.sleep(999999999999999999999999)
+        time.sleep(99999999999999999)
       if client.stopped != True:
         cf()
 		
