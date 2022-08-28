@@ -79,7 +79,7 @@ class client:
         #webhook = data["webhook"]
         #webhookping = data["webhookping"]
         maxbet = data["maxbet"]
-        #solve = data['solve']
+        solve = data['solve']
   current_bet = bet
   if data["token"] and data["channel"] == 'nothing':
    print(f"{color.fail} !!! [ERROR] !!! {color.reset} Please Enter Information To Continue")
@@ -223,7 +223,6 @@ def cf():
     if client.stopped ==True:
         time.sleep(99999999999999999)
     if client.current_bet==150000:
-
         bot.sendMessage(str(client.channel), "owo pray")
     bot.typingAction(str(client.channel))
     bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
@@ -245,7 +244,7 @@ def loopie(resp):
   main=time.time()
   
   while x:    
-    if client.stopped=False:
+    if client.stopped==False:
         cf()	
 
     if time.time() - main > random.randint(1000, 2000):
