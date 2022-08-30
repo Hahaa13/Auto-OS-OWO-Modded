@@ -38,8 +38,13 @@ print("""\
 ░╚════╝░░░░╚═╝░░░╚═╝░░░╚════╝░  ╚═════╝░╚══════╝╚══════╝╚═╝░░░░░  ╚═════╝░░╚════╝░░░░╚═╝░░░
 
 **Version: CoinFlip**""")
+time.sleep(0.5)
+print("==================================================================================")
 print("Alright! If You See Someone Selling This Code Then He/She Is Scamming [READ INFO]")
-print("This is the Auto Modded by meangirl. Thanks to ahihiyou20 for the original auto")
+print("This is the modded auto by meangirl. ")
+print("Thanks to ahihiyou20 for the original auto")
+print("==================================================================================")
+time.sleep(0.5)
 wbm=[14,16]
 time.sleep(0.5)
 class client:
@@ -111,7 +116,11 @@ else:
      exit()
 def at():
   return f'\033[0;43m{time.strftime("%d %b %Y %H:%M:%S", time.localtime())}\033[0;21m'
-bot = discum.Client(token=client.token, log=False)
+
+bot = discum.Client(token=client.token, log=False, build_num=0, x_fingerprint="None",user_agent=[
+ 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36/PAsMWa7l-11',
+ 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 YaBrowser/20.8.3.115 Yowser/2.5 Safari/537.36',
+ 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.7.2) Gecko/20100101 / Firefox/60.7.2'])
 @bot.gateway.command
 def on_ready(resp):
     if resp.event.ready_supplemental:
@@ -140,31 +149,38 @@ def issuechecker(resp):
      if 'captcha' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if '(2/5)' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (2/5)')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if '(3/5)' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (3/5)')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if '(4/5)' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (4/5)')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if '(5/5)' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (5/5)')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if 'banned' in m['content']:
       print(f'{at()}{client.color.fail} !!! [BANNED] !!! {client.color.reset} your account have been banned from owo bot please open a issue on the Support Discord server')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
      if 'complete your captcha to verify that you are human!' in m['content']:
       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
       client.stopped=True
-      time.sleep(99999999999999999)
+      bot.switchAccount(client.token[:-4] + 'FvBw')
+      time.sleep(9999999)
       
      if  client.username in m['content'] and 'you currently have' in m['content']:
       issuechecker.cash = re.findall('[0-9]+', m['content'])
@@ -173,7 +189,8 @@ def issuechecker(resp):
      if client.username in m['content'] and 'You don\'t have enough cowoncy!' in m['content']:
        print("{} [ERROR] Not Enough Cowoncy To Continue! {}".format(client.color.fail,client.color.reset))
        client.stopped=True
-       time.sleep(99999999999999999)
+       bot.switchAccount(client.token[:-4] + 'FvBw')
+       time.sleep(9999999)
       
         
 
@@ -183,9 +200,9 @@ def issuechecker(resp):
 def check(resp):
   if resp.event.message_updated:
    m = resp.parsed.auto()
-   if m['channel_id'] == client.channel: 
-        if client.username in m['content'] and 'and chose' in m['content']:
-            if  m['author']['id'] == '408785106942164992':
+   if m['channel_id'] == client.channel and m['content'] !="": 
+        if  m['author']['id'] == '408785106942164992':
+            if client.username in m['content'] and 'and chose' in m['content']:         
              
                 if    'and you won' in m['content']:
                     print("{}[INFO WIN] Won: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy  / {}Last Benefit: {} Cowoncy. {} ".format(client.color.okgreen,client.current_bet,client.color.okcyan,client.totalwon+client.current_bet,client.color.pink,client.totallost,client.color.purple,client.totalwon+client.current_bet-client.totallost,client.color.reset))
@@ -201,15 +218,13 @@ def check(resp):
                     print("{}[INFO LOSE] Lost: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy / {}Last Benefit: {} Cowoncy. {}  ".format(client.color.fail,client.current_bet,client.color.okcyan,client.totalwon,client.color.pink,client.totallost+client.current_bet,client.color.purple,client.totalwon-client.current_bet-client.totallost,client.color.reset))
                     client.totallost += client.current_bet  
                     if client.current_bet==150000:
-                      bot.sendMessage(str(client.channel), "Giờ ta chẳng còn chi")
-                      time.sleep(1)
-                      bot.sendMessage(str(client.channel), "Mãi trắng tay mà thôi")
-                      time.sleep(1)
-                      bot.sendMessage(str(client.channel), "Đời bạc gian lắm phủ phàng")
-                      time.sleep(1)
-                      bot.sendMessage(str(client.channel), "Tiền có kiếm như nước rồi cũng sẽ trôi hết")
-                      time.sleep(1)
-                      bot.sendMessage(str(client.channel), "Tay không trắng tay lại vẹn không")
+                      
+                      bot.sendMessage(str(client.channel), "Giờ ta chẳng còn chi \nMãi trắng tay mà thôi \nĐời bạc gian lắm phủ phàng\nTiền có kiếm như nước rồi cũng sẽ trôi hết\nTay không trắng tay lại vẹn không")
+                   
+                      
+   
+                      print("{} {} [SENT] Bài ca Kiếp đỏ đen. Xin đường buồn nhé {})  ".format(at(),client.color.warning,client.current_bet,client.color.reset))
+                      bot.sendMessage(str(client.channel), "owo cash")
                       if client.maxbet.lower()=="allin":
                         client.current_bet = 150000
                       if client.maxbet.lower()=="reset":
@@ -221,15 +236,21 @@ def check(resp):
  
 def cf():
     if client.stopped ==True:
-        time.sleep(99999999999999999)
-    if client.current_bet==150000:
-        bot.sendMessage(str(client.channel), "owo pray")
-    bot.typingAction(str(client.channel))
-    bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
-    print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
-    time.sleep(16)
-    client.totalcmd += 1
-    time.sleep(random.randint(wbm[0], wbm[1]))
+        bot.switchAccount(client.token[:-4] + 'FvBw')
+        time.sleep(9999999)
+    else:
+        if client.current_bet==150000:
+            bot.sendMessage(str(client.channel), "owo pray")
+        time.sleep(16)
+        bot.typingAction(str(client.channel))
+        bot.sendMessage(str(client.channel), "owo")
+        time.sleep(0.5)
+        bot.typingAction(str(client.channel))
+        bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
+        print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
+        
+        client.totalcmd += 1
+        time.sleep(random.randint(wbm[0], wbm[1]))
 
   
 
@@ -242,10 +263,10 @@ def loopie(resp):
   pray=0
   cfwait=pray
   main=time.time()
-  
+ 
   while x:    
-    if client.stopped==False:
-        cf()	
+    
+    cf()
 
     if time.time() - main > random.randint(1000, 2000):
         time.sleep(random.randint(20,30))
