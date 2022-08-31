@@ -39,11 +39,12 @@ print("""\
 
 **Version: CoinFlip**""")
 time.sleep(0.5)
-print("==================================================================================")
-print("Alright! If You See Someone Selling This Code Then He/She Is Scamming [READ INFO]")
-print("This is the modded auto by meangirl. ")
-print("Thanks to ahihiyou20 for the original auto")
-print("==================================================================================")
+print("╔═════════════════════════════════════════════════════════════════════════════════╗")
+print()
+print(f" {color.yellow}This is the modded auto by {color.okcyan}Iris {color.yellow}({color.okcyan}ThanhThanh2k7{color.yellow}). {color.reset}")
+print(f" {color.yellow}Thanks to {color.okcyan}ahihiyou20{color.yellow} for the original version{color.reset}")
+print()
+print("╚═════════════════════════════════════════════════════════════════════════════════╝")
 time.sleep(0.5)
 wbm=[14,16]
 time.sleep(0.5)
