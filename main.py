@@ -39,12 +39,11 @@ print("""\
 
 **Version: CoinFlip**""")
 time.sleep(0.5)
-print("╔═════════════════════════════════════════════════════════════════════════════════╗")
-print()
-print(f" {color.yellow}This is the modded auto by {color.okcyan}Iris {color.yellow}({color.okcyan}ThanhThanh2k7{color.yellow}). {color.reset}")
-print(f" {color.yellow}Thanks to {color.okcyan}ahihiyou20{color.yellow} for the original version{color.reset}")
-print()
-print("╚═════════════════════════════════════════════════════════════════════════════════╝")
+print("==================================================================================")
+print("Alright! If You See Someone Selling This Code Then He/She Is Scamming [READ INFO]")
+print("This is the modded auto by meangirl. ")
+print("Thanks to ahihiyou20 for the original auto")
+print("==================================================================================")
 time.sleep(0.5)
 wbm=[14,16]
 time.sleep(0.5)
@@ -201,39 +200,42 @@ def issuechecker(resp):
 def check(resp):
   if resp.event.message_updated:
    m = resp.parsed.auto()
-   if m['channel_id'] == client.channel and m['content'] !="": 
-        if  m['author']['id'] == '408785106942164992':
-            if client.username in m['content'] and 'and chose' in m['content']:         
-             
-                if    'and you won' in m['content']:
-                    print("{}[INFO WIN] Won: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy  / {}Last Benefit: {} Cowoncy. {} ".format(client.color.okgreen,client.current_bet,client.color.okcyan,client.totalwon+client.current_bet,client.color.pink,client.totallost,client.color.purple,client.totalwon+client.current_bet-client.totallost,client.color.reset))
-                    client.totalwon += client.current_bet
-                    if client.current_bet==150000:
-                        bot.typingAction(str(client.channel))
-                        bot.sendMessage(str(client.channel), "owo cash")
-                    client.current_bet = client.bet
-                    
-                    
-                      
-                if   'and you lost it all... :c' in m['content']:
-                    print("{}[INFO LOSE] Lost: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy / {}Last Benefit: {} Cowoncy. {}  ".format(client.color.fail,client.current_bet,client.color.okcyan,client.totalwon,client.color.pink,client.totallost+client.current_bet,client.color.purple,client.totalwon-client.current_bet-client.totallost,client.color.reset))
-                    client.totallost += client.current_bet  
-                    if client.current_bet==150000:
-                      
-                      bot.sendMessage(str(client.channel), "Giờ ta chẳng còn chi \nMãi trắng tay mà thôi \nĐời bạc gian lắm phủ phàng\nTiền có kiếm như nước rồi cũng sẽ trôi hết\nTay không trắng tay lại vẹn không")
-                   
-                      
-   
-                      print("{} {} [SENT] Bài ca Kiếp đỏ đen. Xin đường buồn nhé {})  ".format(at(),client.color.warning,client.current_bet,client.color.reset))
-                      bot.sendMessage(str(client.channel), "owo cash")
-                      if client.maxbet.lower()=="allin":
-                        client.current_bet = 150000
-                      if client.maxbet.lower()=="reset":
-                        client.current_bet=client.bet        
-                    client.current_bet *= client.rate
-                    if client.current_bet>=150000:
-                        client.current_bet=150000
-                    time.sleep(2)
+   try:
+       if m['channel_id'] == client.channel and m['content'] !="": 
+            if  m['author']['id'] == '408785106942164992':
+                if client.username in m['content'] and 'and chose' in m['content']:         
+                 
+                    if    'and you won' in m['content']:
+                        print("{}[INFO WIN] Won: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy  / {}Last Benefit: {} Cowoncy. {} ".format(client.color.okgreen,client.current_bet,client.color.okcyan,client.totalwon+client.current_bet,client.color.pink,client.totallost,client.color.purple,client.totalwon+client.current_bet-client.totallost,client.color.reset))
+                        client.totalwon += client.current_bet
+                        if client.current_bet==150000:
+                            bot.typingAction(str(client.channel))
+                            bot.sendMessage(str(client.channel), "owo cash")
+                        client.current_bet = client.bet
+                        
+                        
+                          
+                    if   'and you lost it all... :c' in m['content']:
+                        print("{}[INFO LOSE] Lost: {} Cowoncy / {}Total Won: {} Cowoncy / {}Total Lose: {} Cowoncy / {}Last Benefit: {} Cowoncy. {}  ".format(client.color.fail,client.current_bet,client.color.okcyan,client.totalwon,client.color.pink,client.totallost+client.current_bet,client.color.purple,client.totalwon-client.current_bet-client.totallost,client.color.reset))
+                        client.totallost += client.current_bet  
+                        if client.current_bet==150000:
+                          
+                          #bot.sendMessage(str(client.channel), "Giờ ta chẳng còn chi \nMãi trắng tay mà thôi \nĐời bạc gian lắm phủ phàng\nTiền có kiếm như nước rồi cũng sẽ trôi hết\nTay không trắng tay lại vẹn không")
+                       
+                          
+       
+                          print("{} {} [SENT] Bài ca Kiếp đỏ đen. Xin đường buồn nhé {})  ".format(at(),client.color.warning,client.current_bet,client.color.reset))
+                          bot.sendMessage(str(client.channel), "owo cash")
+                          if client.maxbet.lower()=="allin":
+                            client.current_bet = 150000
+                          if client.maxbet.lower()=="reset":
+                            client.current_bet=client.bet        
+                        client.current_bet *= client.rate
+                        if client.current_bet>=150000:
+                            client.current_bet=150000
+                        time.sleep(2)
+   except KeyError:
+       print(f"{color.warning}Có đứa ob . Kệ mịa nó :) ")
  
 def cf():
     if client.stopped ==True:
@@ -243,9 +245,10 @@ def cf():
         if client.current_bet==150000:
             bot.sendMessage(str(client.channel), "owo pray")
         time.sleep(16)
-        bot.typingAction(str(client.channel))
-        bot.sendMessage(str(client.channel), "owo")
-        time.sleep(0.5)
+  
+  
+
+
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), "owo cf {}  ".format(client.current_bet))
         print("{} {} [SENT] owo cf {}  ".format(at(),client.color.warning,client.current_bet))
