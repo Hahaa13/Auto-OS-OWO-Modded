@@ -235,7 +235,7 @@ def check(resp):
                             client.current_bet=150000
                         time.sleep(2)
    except KeyError:
-       print(f"{color.warning}Có đứa ob . Kệ mịa nó :) ")
+       print(f"{client.color.warning}Có đứa ob . Kệ mịa nó :) ")
  
 def cf():
     if client.stopped ==True:
